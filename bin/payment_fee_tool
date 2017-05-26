@@ -7,20 +7,18 @@ require 'payment_fee_tool.rb'
 class App
   include Methadone::Main
   include Methadone::CLILogging
-  include Methadone::SH
 
-  main do |amount| # Add args you want: |like,so|
+  main do # Add args you want: |like,so|
     # your program code here
     # You can access CLI options via
     # the options Hash
-    puts PaymentFeeTool::CreditCard.calculate(amount).format
   end
 
   # supplemental methods here
 
   # Declare command-line interface here
 
-  description "Calculate a credit card fee"
+  # description "one line description of your app"
   #
   # Accept flags via:
   # on("--flag VAL","Some flag")
@@ -32,7 +30,7 @@ class App
   # Or, just call OptionParser methods on opts
   #
   # Require an argument
-  arg :amount
+  # arg :some_arg 
   #
   # # Make an argument optional
   # arg :optional_arg, :optional
