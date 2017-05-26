@@ -1,8 +1,7 @@
 # PaymentFeeTool
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/payment_fee_tool`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This is a gem that calculates credit card upcharges for invoice payments.
+This is a tool used internally at ZDN Enterprises.
 
 ## Installation
 
@@ -22,7 +21,15 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+amount_in_cents = 1000_00
+PaymentFeeTool::CreditCard.calculate(amount_in_cents) # => $30.18
+```
+```ruby
+amount_in_cents = 1000_00
+PaymentFeeTool::CreditCard.add_fee_to(amount_in_cents) # => $1,030.18
+
+```
 
 ## Development
 
