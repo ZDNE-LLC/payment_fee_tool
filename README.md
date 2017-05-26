@@ -20,14 +20,33 @@ Or install it yourself as:
     $ gem install payment_fee_tool
 
 ## Usage
+- All methods accept a single parameter: Amount[Integer] (in cents)
+- All methods return a `Money` object.
 
 ```ruby
+# Calculates Credit Card Fee
 amount_in_cents = 1000_00
 PaymentFeeTool::CreditCard.calculate(amount_in_cents) # => $30.18
 ```
 ```ruby
+# Calculates Credit Card Fee and adds it to the amount
 amount_in_cents = 1000_00
 PaymentFeeTool::CreditCard.add_fee_to(amount_in_cents) # => $1,030.18
+
+```
+```ruby
+# Adds WireTransfer fee to amount (fee is always $20.00)
+amount_in_cents = 1000_00
+PaymentFeeTool::WireTransfer.add_fee_to(amount_in_cents) # => $1,020.00
+
+amount_in_cents = 10_00
+PaymentFeeTool::WireTransfer.add_fee_to(amount_in_cents) # => $30.00
+
+```
+```ruby
+# Returns the amount, since there is no check fee.
+amount_in_cents = 1000_00
+PaymentFeeTool::Check.add_fee_to(amount_in_cents) # => $1,000.00
 
 ```
 
